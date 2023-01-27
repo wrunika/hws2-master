@@ -18,7 +18,10 @@ const Stand = () => {
                     <SuperInputText
                         id={'hw4-super-input-like-old'}
                         value={stateForAllInputs}
-                        onChange={(e) => setValue(e.currentTarget.value)}
+                        onChange={(e) => {
+                            error && setError('')
+                            setValue(e.currentTarget.value)}
+                    }
                     />
                 </div>
                 {/*инпут с ошибкой:*/}
@@ -26,7 +29,7 @@ const Stand = () => {
                     <SuperInputText
                         id={'hw4-super-input-with-error'}
                         value={stateForAllInputs}
-                        onChangeText={setValue}
+                        onChangeText={setValue}  //here
                         error={error}
                         onEnter={() => {
                             setError(
@@ -81,8 +84,9 @@ const Stand = () => {
                         id={'hw4-super-checkbox-with-text'}
                         checked={stateForAllCheckboxes}
                         onChangeChecked={setChecked}
+                        //onChangeChecked={ ()=> setChecked(!stateForAllCheckboxes)}
                     >
-                        some text
+                        Hometask
                     </SuperCheckbox>
                 </div>
                 {/*совместим со старым кодом:*/}
