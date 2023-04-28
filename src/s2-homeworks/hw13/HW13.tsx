@@ -39,9 +39,8 @@ const HW13 = () => {
                 setCode('Код 200!')
                 setImage(success200)
                 // дописать
-                //setText('...всё ок) код 200 - обычно означает что скорее всего всё ок)')
                 setText('...всё ок)')
-                setInfo('')
+                setInfo('код 200 - обычно означает что скорее всего всё ок)')
 
             })
             .catch((e) => {
@@ -49,35 +48,24 @@ const HW13 = () => {
                 //console.log(e.response.data.yourBody.success)
                 console.log(e)
                 console.log(e.code)
-                //if (e.response.data.yourBody.success === false) {
                 if (e.code === 'ERR_BAD_RESPONSE') {
-                    //setCode('Ошибка 400!')
-                    //setImage(error400)
-                    //setText('Ты не отправил success в body вообще! ошибка 400 - обычно означает что скорее всего фронт отправил что-то не так на бэк!')
-                    //setInfo('')
                     setCode('Ошибка 500!')
                     setImage(error500)
-                    setText('эмитация ошибки н асервере ошибка 500 - обычно означает что что-то сломалось на сервере, например база данных)')
-                    setInfo('')
+                    setText('эмитация ошибки на сервере')
+                    setInfo('ошибка 500 - обычно означает что что-то сломалось на сервере, например база данных)')
                 }
-                //if (e.response.data.yourBody.success === undefined) {
                 if (e.code === 'ERR_BAD_REQUEST') {
-                    //setCode('Ошибка 500!')
-                    //setImage(error500)
-                    //setText('эмитация ошибки н асервере ошибка 500 - обычно означает что что-то сломалось на сервере, например база данных)')
-                    //setInfo('')
                     setCode('Ошибка 400!')
                     setImage(error400)
-                    setText('Ты не отправил success в body вообще! ошибка 400 - обычно означает что скорее всего фронт отправил что-то не так на бэк!')
-                    setInfo('')
+                    setText('Ты не отправил success в body вообще!')
+                    setInfo('ошибка 400 - обычно означает что скорее всего фронт отправил что-то не то на бэк!')
                 }
                 if (e.code === 'ERR_NETWORK') {
                 //if (url === null) {
                     setCode('Error!')
                     setImage(errorUnknown)
-                    //setText('Network Error AxiosError')
-                    setText('Error')
-                    setInfo('')
+                    setText('Network Error')
+                    setInfo('Error')
                 }
 
             })
